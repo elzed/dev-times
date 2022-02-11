@@ -37,3 +37,5 @@ console.log(`- Study for ${studyHoursInt} hours and ${studyMinsInt} minutes \n- 
 // 2.85 into hours and minutes
 // 2.85
 
+// TODO: Average out time to put tasks into Pomodoros
+console.log(`Spend ${( totalTime/2 * 60 ) / 30} Pomodoros on proposals and applications.`);
