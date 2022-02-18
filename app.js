@@ -16,26 +16,32 @@ form.addEventListener('submit', (e) => {
 const WORK_TO_LEARN_RATIO = 2.5;
 let learnDivisor = 1 + (1/WORK_TO_LEARN_RATIO);
 
-let totalTime = prompt('How long to spend laboring today?');
-let devCodeHoursDec = (totalTime/2) / learnDivisor;
-let studyHoursDec = (totalTime/2) - devCodeHoursDec;
+let totalHours = prompt('How many hours to spend laboring today?');
+
+// TODO: Needs adjustable percentage of time in biz dev, not just assuming 50%
+
+let devCodeHoursDec = (totalHours/2) / learnDivisor;
+let studyCodeHoursDec = (totalHours/2) - devCodeHoursDec;
 
 // Conversion from hours in decimal form to simplified hours & minutes
 let devCodeHoursInt = Math.floor(devCodeHoursDec);
 let devCodeMinsInt = Math.round(((devCodeHoursDec * 60) % 60));
 
-let studyHoursInt = Math.floor(studyHoursDec);
-let studyMinsInt = Math.round(((studyHoursDec * 60) % 60));
+let studyHoursInt = Math.floor(studyCodeHoursDec);
+let studyMinsInt = Math.round(((studyCodeHoursDec * 60) % 60));
 
 
 
 
-console.log(`${totalTime/2} hours shall be spent on freelancing proposals and job applications.`);
-console.log(`Your remaining time of ${totalTime/2} hours of labor will be as follows:`);
+console.log(`${totalHours/2} hours shall be spent on freelancing proposals and job applications.`);
+console.log(`Your remaining time of ${totalHours/2} hours of labor will be as follows:`);
 console.log(`- Study for ${studyHoursInt} hours and ${studyMinsInt} minutes \n- Code for ${devCodeHoursInt} hours and ${devCodeMinsInt} minutes`);
 
 // 2.85 into hours and minutes
 // 2.85
 
-// TODO: Average out time to put tasks into Pomodoros
-console.log(`Spend ${( totalTime/2 * 60 ) / 30} Pomodoros on proposals and applications.`);
+// TODO: Average out time to put tasks into pomodoros
+console.log(`Spend ${( totalHours/2 * 60 ) / 30} pomodoros on proposals and applications.`);
+
+// If studyCodeHoursDec to the right of the decimal is > .25 && < .75 then round to an odd # of pomodoros
+// Else round to an even # of pomodoros
