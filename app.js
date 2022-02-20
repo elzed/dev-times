@@ -45,3 +45,5 @@ console.log(`Spend ${( totalHours/2 * 60 ) / 30} pomodoros on proposals and appl
 
 // If studyCodeHoursDec to the right of the decimal is > .25 && < .75 then round to an odd # of pomodoros
 // Else round to an even # of pomodoros
+
+// New Pomodoro Branch:
