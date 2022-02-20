@@ -47,3 +47,6 @@ console.log(`Spend ${( totalHours/2 * 60 ) / 30} pomodoros on proposals and appl
 // Else round to an even # of pomodoros
 
 // New Pomodoro Branch:
+
+let totalPoms = totalHours / 2;
+console.log(`Total Pomodoros: ${totalPoms}.`);
