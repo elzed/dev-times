@@ -48,11 +48,8 @@ console.log(`Spend ${( totalHours/2 * 60 ) / 30} pomodoros on proposals and appl
 
 // New Pomodoro Branch:
 
-let totalPoms = totalHours / 2;
-console.log(`Total Pomodoros: ${totalPoms}.`);
-
 let studyPomodoros = function() {
-    let studyPomsHours = (studyHoursInt / 2);
+    let studyPomsHours = (studyHoursInt * 2);
     let studyPomsMins;
 
     if (studyMinsInt < 15) {
