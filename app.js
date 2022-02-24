@@ -1,15 +1,23 @@
 // TODO: let learnerLevel = prompt('Enter Learner Level\n1 for Beginner, 2 for Intermediate, 3 for Advanced');
 
-
+const BIZDEV_PERCENTAGE = 0.5;
 const WORK_TO_LEARN_RATIO = 2.5;
+// let bizDevDivisor = 1 + (1/BIZDEV_PERCENTAGE);
 let learnDivisor = 1 + (1/WORK_TO_LEARN_RATIO);
 
-let totalHours = prompt('How many hours to spend laboring today?');
+let totalDailyWorkHours = prompt('How many hours to spend laboring today?');
 
 // TODO: Needs adjustable percentage of time in biz dev, not just assuming 50%
 
-let devCodeHoursDec = (totalHours/2) / learnDivisor;
-let studyCodeHoursDec = (totalHours/2) - devCodeHoursDec;
+// Get percentage of `totalDailyWorkHours` you want to spend on business development
+let bizDevHours = totalDailyWorkHours * BIZDEV_PERCENTAGE;
+
+// "Programming" hours is the time for coding and the time for learning added together
+let programmingHours = totalDailyWorkHours - bizDevHours;
+
+
+let devCodeHoursDec = (totalDailyWorkHours/bizDevDivisor) / learnDivisor;
+let studyCodeHoursDec = (totalDailyWorkHours/bizDevDivisor) - devCodeHoursDec;
 
 // Conversion from hours in decimal form to simplified hours & minutes
 let devCodeHoursInt = Math.floor(devCodeHoursDec);
@@ -19,12 +27,12 @@ let studyHoursInt = Math.floor(studyCodeHoursDec);
 let studyMinsInt = Math.round(((studyCodeHoursDec * 60) % 60));
 
 
-console.log(`${totalHours/2} hours shall be spent on freelancing proposals and job applications.`);
-console.log(`Your remaining time of ${totalHours/2} hours of labor will be as follows:`);
+console.log(`${totalDailyWorkHours/bizDevDivisor} hours shall be spent on freelancing proposals and job applications.`);
+console.log(`Your remaining time of ${totalDailyWorkHours/bizDevDivisor} hours of labor will be as follows:`);
 console.log(`- Study for ${studyHoursInt} hours and ${studyMinsInt} minutes \n- Code for ${devCodeHoursInt} hours and ${devCodeMinsInt} minutes`);
 
 console.log(`\nOr, get focused and follow the pomodoros...`);
-console.log(`Spend ${( totalHours/2 * 60 ) / 30} pomodoros on proposals and applications.`);
+console.log(`Spend ${( totalDailyWorkHours/bizDevDivisor * 60 ) / 30} pomodoros on proposals and applications.`);
 
 
 let studyPomodoros = function() {
