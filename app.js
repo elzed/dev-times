@@ -41,6 +41,7 @@ console.log(`- Study for ${studyHoursInt} hours and ${studyMinsInt} minutes \n- 
 // 2.85
 
 // TODO: Average out time to put tasks into pomodoros
+console.log(`\nOr, get focused and follow the pomodoros...`);
 console.log(`Spend ${( totalHours/2 * 60 ) / 30} pomodoros on proposals and applications.`);
 
 // If studyCodeHoursDec to the right of the decimal is > .25 && < .75 then round to an odd # of pomodoros
