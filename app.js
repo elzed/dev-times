@@ -64,3 +64,21 @@ let studyPomodoros = function() {
 }
 
 console.log(`Spend ${studyPomodoros()} pomodoros on studying.`);
+
+
+let devCodePomodoros = function() {
+    let devCodePomsHours = (devCodeHoursInt * 2);
+    let devCodePomsMins;
+
+    if (devCodeMinsInt < 15) {
+        devCodePomsMins = 0;
+    } else if (devCodeMinsInt >= 15 && devCodeMinsInt < 45) {
+        devCodePomsMins = 1;
+    } else {
+        devCodePomsMins = 2;
+    }
+
+    return devCodePomsHours + devCodePomsMins;
+}
+
+console.log(`Spend ${devCodePomodoros()} pomodoros on coding.`);
