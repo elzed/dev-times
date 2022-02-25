@@ -12,11 +12,13 @@ let totalDailyWorkHours = prompt('How many hours to spend laboring today?');
 // Get percentage of `totalDailyWorkHours` you want to spend on business development
 let bizDevHours = totalDailyWorkHours * BIZDEV_PERCENTAGE;
 
-// "Programming" hours is the time for coding and the time for learning added together
+// "Programming" hours is the time for coding and the time for learning combined
+// Also, it's what is left over after you remove biz dev time from the total hours you'll be working that day
 let programmingHours = totalDailyWorkHours - bizDevHours;
 
 
-let devCodeHoursDec = (totalDailyWorkHours/bizDevDivisor) / learnDivisor;
+let devCodeHoursDec = programmingHours / learnDivisor;
+console.log(`devCodeHoursDec: ${devCodeHoursDec}`);
 let studyCodeHoursDec = (totalDailyWorkHours/bizDevDivisor) - devCodeHoursDec;
 
 // Conversion from hours in decimal form to simplified hours & minutes
