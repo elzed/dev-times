@@ -1,6 +1,6 @@
 // TODO: let learnerLevel = prompt('Enter Learner Level\n1 for Beginner, 2 for Intermediate, 3 for Advanced');
 
-const BIZDEV_PERCENTAGE = 0.5;
+const BIZDEV_PERCENTAGE = 0.25;
 const WORK_TO_LEARN_RATIO = 2.5;
 // let bizDevDivisor = 1 + (1/BIZDEV_PERCENTAGE);
 let learnDivisor = 1 + (1/WORK_TO_LEARN_RATIO);
@@ -19,22 +19,23 @@ let programmingHours = totalDailyWorkHours - bizDevHours;
 
 let devCodeHoursDec = programmingHours / learnDivisor;
 console.log(`devCodeHoursDec: ${devCodeHoursDec}`);
-let studyCodeHoursDec = (totalDailyWorkHours/bizDevDivisor) - devCodeHoursDec;
+let learningHours = programmingHours - devCodeHoursDec;
+console.log(`learningHours: ${learningHours}`);
 
 // Conversion from hours in decimal form to simplified hours & minutes
 let devCodeHoursInt = Math.floor(devCodeHoursDec);
 let devCodeMinsInt = Math.round(((devCodeHoursDec * 60) % 60));
 
-let studyHoursInt = Math.floor(studyCodeHoursDec);
-let studyMinsInt = Math.round(((studyCodeHoursDec * 60) % 60));
+let studyHoursInt = Math.floor(learningHours);
+let studyMinsInt = Math.round(((learningHours * 60) % 60));
 
 
-console.log(`${totalDailyWorkHours/bizDevDivisor} hours shall be spent on freelancing proposals and job applications.`);
-console.log(`Your remaining time of ${totalDailyWorkHours/bizDevDivisor} hours of labor will be as follows:`);
+console.log(`${bizDevHours} hours shall be spent on freelancing proposals and job applications.`);
+console.log(`Your remaining time of ${programmingHours} hours of labor will be as follows:`);
 console.log(`- Study for ${studyHoursInt} hours and ${studyMinsInt} minutes \n- Code for ${devCodeHoursInt} hours and ${devCodeMinsInt} minutes`);
 
 console.log(`\nOr, get focused and follow the pomodoros...`);
-console.log(`Spend ${( totalDailyWorkHours/bizDevDivisor * 60 ) / 30} pomodoros on proposals and applications.`);
+console.log(`Spend ${( bizDevHours * 60 ) / 30} pomodoros on proposals and applications.`);
 
 
 let studyPomodoros = function() {
